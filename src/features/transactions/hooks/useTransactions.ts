@@ -7,7 +7,7 @@ import {
 } from "@/features/transactions/services/transaction.service"
 import type { DepositRequest, WithdrawRequest, TransferRequest } from "@/types"
 
-const emptyPage = { content: [], empty: true, totalPages: 0, totalElements: 0, first: true, last: true } as const
+const emptyPage = { content: [], empty: true, totalPages: 0, totalElements: 0, number: 0, size: 0, numberOfElements: 0, first: true, last: true } as const
 
 export function useTransactionHistory(
   accountId: string,
