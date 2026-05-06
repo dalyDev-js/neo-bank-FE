@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server"
 import { cookies } from "next/headers"
 
+export const maxDuration = 60
+
 const SPRING_API_URL = process.env.SPRING_API_URL ?? "http://localhost:8080"
 
 export async function GET() {

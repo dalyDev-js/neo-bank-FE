@@ -45,6 +45,8 @@ async function handler(request: NextRequest, { params }: Params) {
   }
 }
 
+export const maxDuration = 60
+
 export const GET = handler
 export const POST = handler
 export const PUT = handler
