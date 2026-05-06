@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\abd91\\\\OneDrive\\\\Desktop\\\\Projects\\\\neobank-fe\\\\src\\\\features\\\\accounts\\\\\" -Name *)"
+    ]
+  }
+}
