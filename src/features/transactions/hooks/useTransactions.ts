@@ -1,13 +1,13 @@
-import { useMutation, useQuery, useQueryClient, useSuspenseQuery, keepPreviousData } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query"
 import {
   deposit,
   withdraw,
   transfer,
   getTransactionHistory,
 } from "@/features/transactions/services/transaction.service"
-import type { DepositRequest, WithdrawRequest, TransferRequest } from "@/types"
+import type { DepositRequest, WithdrawRequest, TransferRequest, Page, TransactionResponse } from "@/types"
 
-const emptyPage = { content: [], empty: true, totalPages: 0, totalElements: 0, number: 0, size: 0, numberOfElements: 0, first: true, last: true } as const
+const emptyPage: Page<TransactionResponse> = { content: [], empty: true, totalPages: 0, totalElements: 0, number: 0, size: 0, numberOfElements: 0, first: true, last: true }
 
 export function useTransactionHistory(
   accountId: string,
@@ -25,7 +25,6 @@ export function useTransactionHistorySuspense(accountId: string, page = 0, size 
   return useSuspenseQuery({
     queryKey: ["transactions", accountId, page, size],
     queryFn: () => accountId ? getTransactionHistory(accountId, page, size) : Promise.resolve(emptyPage),
-    placeholderData: keepPreviousData,
   })
 }
 
